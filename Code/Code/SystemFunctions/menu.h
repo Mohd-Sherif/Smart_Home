@@ -10,4 +10,5 @@
 #define MENU_H_
 
 void firstLogin();
+void shefoMenu();
 #endif /* MENU_H_ */
