@@ -24,5 +24,12 @@ int main(void)
 	
 	SPI_Master_init();
 	
+	// First Time Opening the System Check
+	if(EEPROM_u8readByte(EEPROM_SHEFO_STATUS_LOC) == PASS_NOT_SET ||
+		EEPROM_u8readByte(EEPROM_GUEST_STATUS_LOC) == PASS_NOT_SET)
+	{
+		firstLogin();
+	}
+	
     }
 }
