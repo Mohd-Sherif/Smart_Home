@@ -181,3 +181,9 @@ unsigned char tv(){
 	return SPI_Master_Transmit_char(DUMMY_DATA);
 }
 
+unsigned char ac(){
+	SPI_Master_Transmit_char(AC);
+	_delay_ms(TRANSMISSION_DELAY);
+	return SPI_Master_Transmit_char(DUMMY_DATA);
+}
+
