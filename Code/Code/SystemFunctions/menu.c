@@ -214,3 +214,27 @@ void statusPage(unsigned char response){
 	}
 }
 
+void setTemp(){
+	unsigned char keypadReadValue, temp;
+	LCD_vsend_string("Set temp:__");
+	LCD_vsend_char(0xDF); // Send Degree Symbol to LCD
+	LCD_vsend_char('C');
+	_delay_ms(TRANSMISSION_DELAY);
+	do{
+		keypadReadValue = Keypad_u8read();
+	}while(check(keypadReadValue) == NOT_PRESSED);
+	LCD_vmove_cursor(1, 10);
+	LCD_vsend_char(keypadReadValue);
+	temp = (keypadReadValue - 48)*10;
+	_delay_ms(TRANSMISSION_DELAY);
+	do{
+		keypadReadValue = Keypad_u8read();
+	}while(check(keypadReadValue) == NOT_PRESSED);
+	LCD_vmove_cursor(1, 11);
+	LCD_vsend_char(keypadReadValue);
+	temp += (keypadReadValue - 48);
+	SPI_Master_Transmit_char(SET_TEMP);
+	_delay_ms(TRANSMISSION_DELAY);
+	SPI_Master_Transmit_char(temp);
+	_delay_ms(TRANSMISSION_DELAY);
+}
