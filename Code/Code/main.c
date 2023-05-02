@@ -5,14 +5,8 @@
  * Author : Mohamed Sherif
  */ 
 
-#include <avr/io.h>
-
+#include "Config.h"
 
 int main(void)
-{
-    /* Replace with your application code */
-    while (1) 
-    {
     }
 }
-
