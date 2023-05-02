@@ -7,6 +7,8 @@
 
 #include "../../Code/Code/Config.h"
 
+volatile unsigned char ctr, acStat, aclastStat;
+volatile signed char  temperatureRead, acTemperature = 20;
 
 int main(void)
 {
