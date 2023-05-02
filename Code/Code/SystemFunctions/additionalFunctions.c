@@ -79,3 +79,39 @@ void blockMode(){
 	LED_vOFF(BLOCK_LED_PORT, BLOCK_LED_PIN);
 }
 
+void login(){
+	unsigned char keypadReadValue, passResult = TRUE, triesUsed = 0;
+	do{
+		LCD_vsend_string("Select User:");
+		LCD_vmove_cursor(2, 1);
+		LCD_vsend_string("0:Shefo 1:Guest");
+		do{
+			keypadReadValue = Keypad_u8read();
+		}while(keypadReadValue != SHEFO && keypadReadValue != GUEST);
+		LCD_vCLR_screen();
+		triesUsed++;
+		_delay_ms(PASS_DELAY);
+		passResult = checkPass(keypadReadValue);
+		if(passResult == FALSE){
+			LCD_vCLR_screen();
+			LCD_vsend_string("Wrong Password!");
+			LCD_vmove_cursor(2, 1);
+			LCD_vsend_string("Tries Left: ");
+			LCD_vsend_char((MAX_TRIES - triesUsed) + 48);
+			_delay_ms(LCD_DELAY);
+			LCD_vCLR_screen();
+		}
+		if(triesUsed == MAX_TRIES){
+			break;
+		}
+	}while(passResult == FALSE);
+	if(triesUsed == MAX_TRIES){
+		EEPROM_vwriteByte(EEPROM_BLOCK_STATUS_LOC, TRUE);
+	}
+	else if(keypadReadValue == SHEFO){
+		shefoMenu();
+	}
+	else{
+		guestMenu();
+	}
+}

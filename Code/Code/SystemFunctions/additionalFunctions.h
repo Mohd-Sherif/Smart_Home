@@ -12,5 +12,6 @@
 unsigned char check(unsigned char keypadReadValue);
 void setPassword(char mode);
 void blockMode();
+void login();
 
 #endif /* ADDITIONALFUNCTIONS_H_ */
