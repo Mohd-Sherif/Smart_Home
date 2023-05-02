@@ -26,6 +26,22 @@ int main(void)
     
 	while(TRUE){
 		request = SPI_Slave_Receive_char(DUMMY_DATA);
+		switch(request){
+			case ROOM1:
+				break;
+			case ROOM2:
+				break;
+			case ROOM3:
+				break;
+			case ROOM4:
+				break;
+			case TV:
+				break;
+			case AC:
+				break;
+			case SET_TEMP:
+				break;
+		}
     }
 }
 
