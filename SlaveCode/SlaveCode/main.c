@@ -85,6 +85,23 @@ int main(void)
 				}
 				break;
 			case ROOM4:
+				if(LED_u8read(ROOM4_LED_PORT, ROOM4_LED_PIN) == 1){
+					response = ON;
+				}
+				else{
+					response = OFF;
+				}
+				SPI_Slave_Receive_char(response);
+				request = SPI_Slave_Receive_char(DUMMY_DATA);
+				_delay_ms(TRANSMISSION_DELAY);
+				switch(request){
+					case ON:
+						LED_vON(ROOM4_LED_PORT, ROOM4_LED_PIN);
+						break;
+					case OFF:
+						LED_vOFF(ROOM4_LED_PORT, ROOM4_LED_PIN);
+						break;
+				}
 				break;
 			case TV:
 				break;
