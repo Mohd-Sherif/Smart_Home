@@ -11,4 +11,5 @@
 
 void firstLogin();
 void shefoMenu();
+void guestMenu();
 #endif /* MENU_H_ */

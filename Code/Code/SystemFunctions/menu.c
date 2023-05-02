@@ -101,3 +101,45 @@ void shefoMenu(){
 	LED_vOFF(SHEFO_LED_PORT, SHEFO_LED_PIN);
 }
 
+void guestMenu(){
+	unsigned char keypadReadValue, response = DUMMY_DATA;
+	LED_vON(GUEST_LED_PORT, GUEST_LED_PIN);
+	LCD_vsend_string("Welcome Guest!");
+	_delay_ms(LCD_DELAY);
+	while(TRUE){
+		LCD_vCLR_screen();
+		LCD_vsend_string("1:ROOM1  2:ROOM2");
+		LCD_vmove_cursor(2, 1);
+		LCD_vsend_string("3:ROOM3  4:ROOM4");
+		do{
+			keypadReadValue = Keypad_u8read();
+			if(keypadReadValue == 'C'){
+				break;
+			}
+		}while(keypadReadValue < '1' || keypadReadValue > '4');
+		LCD_vCLR_screen();
+		if(keypadReadValue == 'C'){
+			break;
+		}
+		switch(keypadReadValue){
+			case '1':
+				LCD_vsend_string("ROOM1 STAT: ");
+				response = room(1);
+				break;
+			case '2':
+				LCD_vsend_string("ROOM2 STAT: ");
+				response = room(2);
+				break;
+			case '3':
+				LCD_vsend_string("ROOM3 STAT: ");
+				response = room(3);
+				break;
+			case '4':
+				LCD_vsend_string("ROOM4 STAT: ");
+				response = room(4);
+				break;
+		}
+		statusPage(response);
+	}
+	LED_vOFF(GUEST_LED_PORT, GUEST_LED_PIN);
+}
