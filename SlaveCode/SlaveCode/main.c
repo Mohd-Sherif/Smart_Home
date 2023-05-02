@@ -5,14 +5,11 @@
  * Author : Mohamed Sherif
  */ 
 
-#include <avr/io.h>
+#include "../../Code/Code/Config.h"
 
 
 int main(void)
 {
-    /* Replace with your application code */
-    while (1) 
-    {
     }
 }
 
