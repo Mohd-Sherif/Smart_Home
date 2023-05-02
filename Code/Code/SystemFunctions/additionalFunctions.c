@@ -62,3 +62,20 @@ unsigned char check(unsigned char keypadReadValue){
 	return returnValue;
 }
 
+void blockMode(){
+	unsigned char i = BLOCK_PERIOD;
+	LED_vON(BLOCK_LED_PORT, BLOCK_LED_PIN);
+	LCD_vsend_string("Login is Blocked");
+	LCD_vmove_cursor(2, 1);
+	LCD_vsend_string("Wait 30 Seconds");
+	for(i=BLOCK_PERIOD-1; i>0; --i){
+		_delay_ms(1000);
+		LCD_vmove_cursor(2, 6);
+		LCD_vsend_char((i/10) + 48);
+		LCD_vsend_char((i%10) + 48);
+	}
+	LCD_vCLR_screen();
+	EEPROM_vwriteByte(EEPROM_BLOCK_STATUS_LOC, FALSE);
+	LED_vOFF(BLOCK_LED_PORT, BLOCK_LED_PIN);
+}
+
