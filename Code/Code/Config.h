@@ -22,4 +22,9 @@
 #include "Drivers/HAL/LcdDriver/LCD.h"
 #include "Drivers/HAL/KeypadDriver/Keypad.h"
 
+// EEPROM
+#define EEPROM_SHEFO_STATUS_LOC 0x22
+#define EEPROM_GUEST_STATUS_LOC (EEPROM_SHEFO_STATUS_LOC + 1 + PASS_SIZE)
+#define EEPROM_BLOCK_STATUS_LOC (EEPROM_GUEST_STATUS_LOC + 1 + PASS_SIZE)
+
 #endif /* CONFIG_H_ */
