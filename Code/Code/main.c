@@ -22,5 +22,7 @@ int main(void)
 	LED_vinit(SHEFO_LED_PORT, SHEFO_LED_PIN);
 	LED_vinit(GUEST_LED_PORT, GUEST_LED_PIN);
 	
+	SPI_Master_init();
+	
     }
 }
