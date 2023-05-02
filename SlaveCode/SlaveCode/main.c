@@ -154,3 +154,26 @@ int main(void)
     }
 }
 
+ISR(TIMER0_COMP_vect){
+	ctr++;
+	if(ctr >= 10){
+		ctr = 0;
+		temperatureRead = 0.25*ADC_u16read(); // mVolt/10
+		if(temperatureRead > (acTemperature/2) && acStat == ON){
+			LED_vON(AC_LED_PORT, AC_LED_PIN);
+			aclastStat = ON;
+		}
+		else if(temperatureRead == (acTemperature/2) && acStat == ON){
+			if(aclastStat == ON){
+				LED_vON(AC_LED_PORT, AC_LED_PIN);
+			}
+			else{
+				LED_vOFF(AC_LED_PORT, AC_LED_PIN);
+			}
+		}
+		else{
+			LED_vOFF(AC_LED_PORT, AC_LED_PIN);
+			aclastStat = OFF;
+		}
+	}
+}
