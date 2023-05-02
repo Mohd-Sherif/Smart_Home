@@ -144,6 +144,8 @@ int main(void)
 				}
 				break;
 			case SET_TEMP:
+				acTemperature = SPI_Slave_Receive_char(DUMMY_DATA);
+				_delay_ms(TRANSMISSION_DELAY);
 				break;
 		}
     }
