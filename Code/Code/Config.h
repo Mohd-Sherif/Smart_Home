@@ -73,4 +73,20 @@
 #define BLOCK_PERIOD 30
 #define TRANSMISSION_DELAY 250
 
+
+// Status Codes for Communication
+#define DUMMY_DATA 0x10
+#define ROOM1 0x11
+#define ROOM2 0x12
+#define ROOM3 0x13
+#define ROOM4 0x14
+#define TV 0x15
+#define AC 0x16
+#define ON 0x17
+#define OFF 0x18
+#define SET_TEMP 0x19
+
+
+
+
 #endif /* CONFIG_H_ */
