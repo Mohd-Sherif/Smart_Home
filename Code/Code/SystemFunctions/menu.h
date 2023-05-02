@@ -8,4 +8,6 @@
 
 #ifndef MENU_H_
 #define MENU_H_
+
+void firstLogin();
 #endif /* MENU_H_ */
