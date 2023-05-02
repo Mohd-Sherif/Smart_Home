@@ -56,4 +56,21 @@
 #include "SystemFunctions/menu.h"
 
 
+// System Configurations
+#define PASS_NOT_SET 0xFF
+#define PASS_SET 0x00
+#define PASS_SYMBOL '*'
+#define MAX_TRIES 3
+#define PASS_DELAY 250
+#define LCD_DELAY 1500
+#define SHEFO '0'
+#define GUEST '1'
+#define INVALID 0
+#define VALID 1
+#define PASS_SIZE 4
+#define TRUE 1
+#define FALSE 0
+#define BLOCK_PERIOD 30
+#define TRANSMISSION_DELAY 250
+
 #endif /* CONFIG_H_ */
