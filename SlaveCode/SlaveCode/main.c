@@ -25,6 +25,7 @@ int main(void)
     SPI_Slave_init();
     
 	while(TRUE){
+		request = SPI_Slave_Receive_char(DUMMY_DATA);
     }
 }
 
