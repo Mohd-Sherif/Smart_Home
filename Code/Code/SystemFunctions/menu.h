@@ -13,4 +13,5 @@ void firstLogin();
 void shefoMenu();
 void guestMenu();
 unsigned char room(unsigned char roomNumber);
+unsigned char tv();
 #endif /* MENU_H_ */

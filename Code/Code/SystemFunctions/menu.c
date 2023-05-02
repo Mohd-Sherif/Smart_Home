@@ -175,3 +175,9 @@ unsigned char room(unsigned char roomNumber){
 	return response;
 }
 
+unsigned char tv(){
+	SPI_Master_Transmit_char(TV);
+	_delay_ms(TRANSMISSION_DELAY);
+	return SPI_Master_Transmit_char(DUMMY_DATA);
+}
+
