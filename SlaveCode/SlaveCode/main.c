@@ -22,6 +22,8 @@ int main(void)
 	LED_vinit(ROOM3_LED_PORT, ROOM3_LED_PIN);
 	LED_vinit(ROOM4_LED_PORT, ROOM4_LED_PIN);
 	
+    SPI_Slave_init();
+    
     }
 }
 
