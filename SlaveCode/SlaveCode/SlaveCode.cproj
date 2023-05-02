@@ -120,9 +120,74 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Drivers\HAL\KeypadDriver\Keypad.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\HAL\KeypadDriver\Keypad.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\HAL\LcdDriver\LCD.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\HAL\LcdDriver\LCD.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\HAL\LedDriver\LED.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\HAL\LedDriver\LED.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\AdcDriver\ADC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\AdcDriver\ADC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\DioDriver\DIO.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\DioDriver\DIO.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\EepromDriver\EEPROM.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\EepromDriver\EEPROM.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\SpiDriver\SPI.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\SpiDriver\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\StandardMacrosHeader\std_macros.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\TimerDriver\Timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\TimerDriver\Timer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Drivers\" />
+    <Folder Include="Drivers\HAL\" />
+    <Folder Include="Drivers\HAL\KeypadDriver\" />
+    <Folder Include="Drivers\HAL\LcdDriver\" />
+    <Folder Include="Drivers\HAL\LedDriver\" />
+    <Folder Include="Drivers\MCAL\" />
+    <Folder Include="Drivers\MCAL\AdcDriver\" />
+    <Folder Include="Drivers\MCAL\DioDriver\" />
+    <Folder Include="Drivers\MCAL\EepromDriver\" />
+    <Folder Include="Drivers\MCAL\SpiDriver\" />
+    <Folder Include="Drivers\MCAL\StandardMacrosHeader\" />
+    <Folder Include="Drivers\MCAL\TimerDriver\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
