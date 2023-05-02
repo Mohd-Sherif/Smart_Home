@@ -10,6 +10,8 @@
 
 int main(void)
 {
+	unsigned char request = DUMMY_DATA, response = DUMMY_DATA;
+	
     }
 }
 
