@@ -12,6 +12,7 @@ int main(void)
 {
 	unsigned char request = DUMMY_DATA, response = DUMMY_DATA;
 	
+	Timer_CTC_Interrupt();
 	
 	ADC_vinit();
 	
