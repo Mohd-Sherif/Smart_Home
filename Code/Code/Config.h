@@ -36,4 +36,19 @@
 #define SHEFO_LED_PIN 1
 #define GUEST_LED_PIN 2
 
+// Slave LEDs
+#define AC_LED_PORT 'D'
+#define TV_LED_PORT 'D'
+#define ROOM1_LED_PORT 'D'
+#define ROOM2_LED_PORT 'D'
+#define ROOM3_LED_PORT 'D'
+#define ROOM4_LED_PORT 'D'
+
+#define AC_LED_PIN 2
+#define TV_LED_PIN 3
+#define ROOM1_LED_PIN 4
+#define ROOM2_LED_PIN 5
+#define ROOM3_LED_PIN 6
+#define ROOM4_LED_PIN 7
+
 #endif /* CONFIG_H_ */
