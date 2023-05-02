@@ -187,3 +187,30 @@ unsigned char ac(){
 	return SPI_Master_Transmit_char(DUMMY_DATA);
 }
 
+void statusPage(unsigned char response){
+	unsigned char keypadReadValue;
+	if(response == ON){
+		LCD_vsend_string("ON");
+	}
+	else{
+		LCD_vsend_string("OFF");
+	}
+	LCD_vmove_cursor(2, 1);
+	LCD_vsend_string("1:ON 2:OFF 3:ret");
+	do{
+		keypadReadValue = Keypad_u8read();
+	}while(keypadReadValue < '1' || keypadReadValue > '3');
+	if(keypadReadValue == '1'){
+		SPI_Master_Transmit_char(ON);
+		_delay_ms(TRANSMISSION_DELAY);
+	}
+	else if(keypadReadValue == '2'){
+		SPI_Master_Transmit_char(OFF);
+		_delay_ms(TRANSMISSION_DELAY);
+	}
+	else{
+		SPI_Master_Transmit_char(DUMMY_DATA);
+		_delay_ms(TRANSMISSION_DELAY);
+	}
+}
+

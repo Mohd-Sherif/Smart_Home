@@ -15,4 +15,5 @@ void guestMenu();
 unsigned char room(unsigned char roomNumber);
 unsigned char tv();
 unsigned char ac();
+void statusPage(unsigned char response);
 #endif /* MENU_H_ */
