@@ -31,5 +31,13 @@ int main(void)
 		firstLogin();
 	}
 	
+	// Beginning of the periodic behavior
+    while(TRUE){
+		if(EEPROM_u8readByte(EEPROM_BLOCK_STATUS_LOC) == TRUE){
+			blockMode();
+		}
+		else{
+			login();
+		}
     }
 }
