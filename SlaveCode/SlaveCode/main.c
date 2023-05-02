@@ -24,6 +24,7 @@ int main(void)
 	
     SPI_Slave_init();
     
+	while(TRUE){
     }
 }
 
