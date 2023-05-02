@@ -16,4 +16,10 @@
 #include "Drivers/MCAL/AdcDriver/ADC.h"
 #include "Drivers/MCAL/TimerDriver/Timer.h"
 #include "Drivers/MCAL/SpiDriver/SPI.h"
+
+// HAL Drivers
+#include "Drivers/HAL/LedDriver/LED.h"
+#include "Drivers/HAL/LcdDriver/LCD.h"
+#include "Drivers/HAL/KeypadDriver/Keypad.h"
+
 #endif /* CONFIG_H_ */
