@@ -9,6 +9,7 @@
 #ifndef ADDITIONALFUNCTIONS_H_
 #define ADDITIONALFUNCTIONS_H_
 
+unsigned char check(unsigned char keypadReadValue);
 void setPassword(char mode);
 
 #endif /* ADDITIONALFUNCTIONS_H_ */

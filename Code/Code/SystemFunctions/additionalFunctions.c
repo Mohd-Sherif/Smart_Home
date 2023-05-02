@@ -43,3 +43,22 @@ void setPassword(char mode){
 	_delay_ms(LCD_DELAY);
 	LCD_vCLR_screen();
 }
+
+unsigned char check(unsigned char keypadReadValue){
+	unsigned char returnValue;
+	if(
+	keypadReadValue == '+' ||
+	keypadReadValue == '-' ||
+	keypadReadValue == '/' ||
+	keypadReadValue == '*' ||
+	keypadReadValue == 'C' ||
+	keypadReadValue == '=')
+	{
+		returnValue = NOT_PRESSED;
+	}
+	else{
+		returnValue = keypadReadValue;
+	}
+	return returnValue;
+}
+
