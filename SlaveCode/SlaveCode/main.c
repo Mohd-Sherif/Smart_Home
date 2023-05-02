@@ -123,6 +123,25 @@ int main(void)
 				}
 				break;
 			case AC:
+				if(LED_u8read(AC_LED_PORT, AC_LED_PIN) == 1){
+					response = ON;
+				}
+				else{
+					response = OFF;
+				}
+				SPI_Slave_Receive_char(response);
+				request = SPI_Slave_Receive_char(DUMMY_DATA);
+				_delay_ms(TRANSMISSION_DELAY);
+				switch(request){
+					case ON:
+						acStat = ON;
+						LED_vON(AC_LED_PORT, AC_LED_PIN);
+						break;
+					case OFF:
+						acStat = OFF;
+						LED_vOFF(AC_LED_PORT, AC_LED_PIN);
+						break;
+				}
 				break;
 			case SET_TEMP:
 				break;
