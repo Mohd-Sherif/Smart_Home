@@ -143,3 +143,35 @@ void guestMenu(){
 	}
 	LED_vOFF(GUEST_LED_PORT, GUEST_LED_PIN);
 }
+
+unsigned char room(unsigned char roomNumber){
+	char response = DUMMY_DATA;
+	switch(roomNumber){
+		case 1:
+			SPI_Master_Transmit_char(ROOM1);
+			_delay_ms(TRANSMISSION_DELAY);
+			response = SPI_Master_Transmit_char(DUMMY_DATA);
+			_delay_ms(TRANSMISSION_DELAY);
+			break;
+		case 2:
+			SPI_Master_Transmit_char(ROOM2);
+			_delay_ms(TRANSMISSION_DELAY);
+			response = SPI_Master_Transmit_char(DUMMY_DATA);
+			_delay_ms(TRANSMISSION_DELAY);
+			break;
+		case 3:
+			SPI_Master_Transmit_char(ROOM3);
+			_delay_ms(TRANSMISSION_DELAY);
+			response = SPI_Master_Transmit_char(DUMMY_DATA);
+			_delay_ms(TRANSMISSION_DELAY);
+			break;
+		case 4:
+			SPI_Master_Transmit_char(ROOM4);
+			_delay_ms(TRANSMISSION_DELAY);
+			response = SPI_Master_Transmit_char(DUMMY_DATA);
+			_delay_ms(TRANSMISSION_DELAY);
+			break;
+	}
+	return response;
+}
+
