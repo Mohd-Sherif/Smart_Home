@@ -9,5 +9,6 @@
 #ifndef ADDITIONALFUNCTIONS_H_
 #define ADDITIONALFUNCTIONS_H_
 
+void setPassword(char mode);
 
 #endif /* ADDITIONALFUNCTIONS_H_ */
