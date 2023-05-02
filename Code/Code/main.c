@@ -16,5 +16,7 @@ int main(void)
 	_delay_ms(LCD_DELAY);
 	LCD_vCLR_screen();
 
+	Keypad_vinit();
+	
     }
 }
