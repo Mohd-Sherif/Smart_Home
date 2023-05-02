@@ -115,3 +115,54 @@ void login(){
 		guestMenu();
 	}
 }
+
+unsigned char checkPass(unsigned char keypadReadValue){
+	unsigned char password[PASS_SIZE], passwordLocationCounter = 0, result = TRUE, passwordRead[PASS_SIZE];
+	if(keypadReadValue == SHEFO){
+		LCD_vsend_string("Write Shefo");
+		LCD_vmove_cursor(2, 1);
+		LCD_vsend_string("Password: ");
+		for(passwordLocationCounter = 0; passwordLocationCounter<PASS_SIZE; ++passwordLocationCounter){
+			do{
+				keypadReadValue = Keypad_u8read();
+			}while(check(keypadReadValue) == NOT_PRESSED);
+			LCD_vsend_char(keypadReadValue);
+			password[passwordLocationCounter] = keypadReadValue;
+			_delay_ms(PASS_DELAY);
+			LCD_vmove_cursor(2, 10 + passwordLocationCounter + 1);
+			LCD_vsend_char(PASS_SYMBOL);
+		}
+		LCD_vCLR_screen();
+		EEPROM_u8readBlock(EEPROM_SHEFO_STATUS_LOC + 1, passwordRead, PASS_SIZE);
+		for(passwordLocationCounter = 0; passwordLocationCounter<PASS_SIZE; ++passwordLocationCounter){
+			if(password[passwordLocationCounter] != passwordRead[passwordLocationCounter]){
+				result = FALSE;
+				break;
+			}
+		}
+	}
+	else{
+		LCD_vsend_string("Write Guest");
+		LCD_vmove_cursor(2, 1);
+		LCD_vsend_string("Password: ");
+		for(passwordLocationCounter = 0; passwordLocationCounter<PASS_SIZE; ++passwordLocationCounter){
+			do{
+				keypadReadValue = Keypad_u8read();
+			}while(check(keypadReadValue) == NOT_PRESSED);
+			LCD_vsend_char(keypadReadValue);
+			password[passwordLocationCounter] = keypadReadValue;
+			_delay_ms(PASS_DELAY);
+			LCD_vmove_cursor(2, 10 + passwordLocationCounter + 1);
+			LCD_vsend_char(PASS_SYMBOL);
+		}
+		LCD_vCLR_screen();
+		EEPROM_u8readBlock(EEPROM_GUEST_STATUS_LOC + 1, passwordRead, PASS_SIZE);
+		for(passwordLocationCounter = 0; passwordLocationCounter<PASS_SIZE; ++passwordLocationCounter){
+			if(password[passwordLocationCounter] != passwordRead[passwordLocationCounter]){
+				result = FALSE;
+				break;
+			}
+		}
+	}
+	return result;
+}
