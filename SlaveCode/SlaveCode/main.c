@@ -39,7 +39,6 @@ int main(void)
 				}
 				SPI_Slave_Receive_char(response);
 				request = SPI_Slave_Receive_char(DUMMY_DATA);
-				_delay_ms(TRANSMISSION_DELAY);
 				switch(request){
 					case ON:
 						LED_vON(ROOM1_LED_PORT, ROOM1_LED_PIN);
@@ -58,7 +57,6 @@ int main(void)
 				}
 				SPI_Slave_Receive_char(response);
 				request = SPI_Slave_Receive_char(DUMMY_DATA);
-				_delay_ms(TRANSMISSION_DELAY);
 				switch(request){
 					case ON:
 						LED_vON(ROOM2_LED_PORT, ROOM2_LED_PIN);
@@ -77,7 +75,6 @@ int main(void)
 				}
 				SPI_Slave_Receive_char(response);
 				request = SPI_Slave_Receive_char(DUMMY_DATA);
-				_delay_ms(TRANSMISSION_DELAY);
 				switch(request){
 					case ON:
 						LED_vON(ROOM3_LED_PORT, ROOM3_LED_PIN);
@@ -96,7 +93,6 @@ int main(void)
 				}
 				SPI_Slave_Receive_char(response);
 				request = SPI_Slave_Receive_char(DUMMY_DATA);
-				_delay_ms(TRANSMISSION_DELAY);
 				switch(request){
 					case ON:
 						LED_vON(ROOM4_LED_PORT, ROOM4_LED_PIN);
@@ -115,7 +111,6 @@ int main(void)
 				}
 				SPI_Slave_Receive_char(response);
 				request = SPI_Slave_Receive_char(DUMMY_DATA);
-				_delay_ms(TRANSMISSION_DELAY);
 				switch(request){
 					case ON:
 						LED_vON(TV_LED_PORT, TV_LED_PIN);
@@ -134,7 +129,6 @@ int main(void)
 				}
 				SPI_Slave_Receive_char(response);
 				request = SPI_Slave_Receive_char(DUMMY_DATA);
-				_delay_ms(TRANSMISSION_DELAY);
 				switch(request){
 					case ON:
 						acStat = ON;
@@ -148,7 +142,6 @@ int main(void)
 				break;
 			case SET_TEMP:
 				acTemperature = SPI_Slave_Receive_char(DUMMY_DATA);
-				_delay_ms(TRANSMISSION_DELAY);
 				break;
 		}
     }
@@ -159,11 +152,11 @@ ISR(TIMER0_COMP_vect){
 	if(ctr >= 10){
 		ctr = 0;
 		temperatureRead = 0.25*ADC_u16read(); // mVolt/10
-		if(temperatureRead > (acTemperature/2) && acStat == ON){
+		if(temperatureRead > acTemperature && acStat == ON){
 			LED_vON(AC_LED_PORT, AC_LED_PIN);
 			aclastStat = ON;
 		}
-		else if(temperatureRead == (acTemperature/2) && acStat == ON){
+		else if(temperatureRead == acTemperature && acStat == ON){
 			if(aclastStat == ON){
 				LED_vON(AC_LED_PORT, AC_LED_PIN);
 			}
