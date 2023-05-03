@@ -9,7 +9,9 @@
 #include "../StandardMacrosHeader/std_macros.h"
 
 void ADC_vinit(void){
-	SET_BIT(ADMUX,REFS0); //configure VREF
+	// configure VREF as internal VREF of the ADC (2.56V)
+	SET_BIT(ADMUX,REFS0);
+	SET_BIT(ADMUX,REFS1);
 	SET_BIT(ADCSRA,ADEN); //enable ADC
 	/*adjust ADC clock*/
 	SET_BIT(ADCSRA,ADPS2);
