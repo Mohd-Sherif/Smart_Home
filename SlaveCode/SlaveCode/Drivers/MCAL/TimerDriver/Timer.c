@@ -9,7 +9,7 @@
 
 void Timer_CTC_Interrupt(){
 	SET_BIT(TCCR0,WGM01); //Select CTC Mode
-	OCR0=80; //Load value in OCR0
+	OCR0=80; //Load value in OCR0 that achieves 10mSec
 	//Select Timer Clock
 	SET_BIT(TCCR0,CS00);
 	SET_BIT(TCCR0,CS02);

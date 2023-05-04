@@ -703,7 +703,7 @@ void Timer_CTC_Interrupt(){
  47a:	83 b7       	in	r24, 0x33	; 51
  47c:	88 60       	ori	r24, 0x08	; 8
  47e:	83 bf       	out	0x33, r24	; 51
-	OCR0=80; //Load value in OCR0
+	OCR0=80; //Load value in OCR0 that achieves 10mSec
  480:	80 e5       	ldi	r24, 0x50	; 80
  482:	8c bf       	out	0x3c, r24	; 60
 	//Select Timer Clock
